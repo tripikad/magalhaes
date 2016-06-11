@@ -55,6 +55,10 @@ Source data can be previewed in ```/sources/index.html``` page.
 
 There might be a need for intermediate step between source and target data for analysis and data cleanup. Processed data might have a **schema**, such as geoindexes.
 
+Naming convention: ```processed_*processedname*```.
+
 ### Target data
 
 Target data is meant for direct consumption via API. It has **schema** and most likely have Eloquent models attached to them.
+
+Naming convention: ```targets_*targetname*```.

@@ -33,9 +33,9 @@ Source data is stored in SQL database in unstructured JSON format. By default th
 |---|---|---|---|
 |Type|increments|string|string|json|
 |Comment| used|Matches ```*sourcename*``` above |Data dumpster|
-||```234```|```world_airports```|```{"code": "TLL", "name": "Tallinn Airport"}```|
-||```235```|```world_airports```|```{"code": "FRA", "name": "Frankfurt Airport"}```|
-||```236```|```geonames_countries```|```{"name": "Estonia", "isocode": "EE"}```|
+|Sample row|```234```|```world_airports```|```{"code": "TLL", "name": "Tallinn Airport"}```|
+|Sample row|```235```|```world_airports```|```{"code": "FRA", "name": "Frankfurt Airport"}```|
+|Sample row|```236```|```geonames_countries```|```{"name": "Estonia", "isocode": "EE"}```|
 
 There might be a need for dedicated tables for certain source data. The convention is to use ```source_*sourcename*``` table with similar key-value JSON storage.
 

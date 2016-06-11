@@ -18,7 +18,7 @@ class SourceAirports2 extends Command
         $this->line('');
         $this->line('Cleaning previous data');
 
-        app('db')->table('sources')->where('sourcename', '=', $sourcename)->delete();
+        app('db')->table('source')->where('sourcename', '=', $sourcename)->delete();
 
         $this->line('Downloading source');
         $this->info($source);
@@ -37,7 +37,7 @@ class SourceAirports2 extends Command
             $row->_lng = $row->longitude;
 
             app('db')
-                ->table('sources')
+                ->table('source')
                 ->insert([
                     'sourcename' => $sourcename,
                     'value' => json_encode($row)

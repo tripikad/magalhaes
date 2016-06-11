@@ -43,7 +43,7 @@ $app->get('/sources', function () {
     ])->map(function($source) {
 
         $source['count'] = app('db')
-            ->table('sources')
+            ->table('source')
             ->where('sourcename', $source['sourcename'])
             ->count();
 
@@ -58,10 +58,10 @@ $app->get('/sources', function () {
 
 });
 
-$app->get('/sources/{sourcename}', function ($sourcename) {
+$app->get('/source/{sourcename}', function ($sourcename) {
     
     $results = app('db')
-        ->table('sources')
+        ->table('source')
         ->where('sourcename', $sourcename)
         ->take(50)
         ->orderByRaw('RAND()')

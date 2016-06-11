@@ -27,7 +27,7 @@ The data pipeline has three stages: **source** data, optional **processed** data
 
 Source data is **schemaless**, unstructured, unprocessed data that is not meant for direct production usage.
 
-Source data is stored in SQL database in unstructured JSON format. By default the data stored in ```sources``` table in following schema:
+Source data is stored in SQL database in unstructured JSON format. By default the data stored in ```source``` table in following schema:
 
 ||id|sourcename|value|
 |---|---|---|---|
@@ -37,7 +37,7 @@ Source data is stored in SQL database in unstructured JSON format. By default th
 ||```235```|```world_airports```|```{"code": "FRA", "name": "Frankfurt Airport"}```|
 ||```236```|```geonames_countries```|```{"name": "Estonia", "isocode": "EE"}```|
 
-There might be a need for dedicated tables for certain source data. The convention is to use ```sources_*sourcename*``` table with similar key-value JSON storage.
+There might be a need for dedicated tables for certain source data. The convention is to use ```source_*sourcename*``` table with similar key-value JSON storage.
 
 #### Fetching
 

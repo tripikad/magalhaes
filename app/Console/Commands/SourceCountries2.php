@@ -18,7 +18,7 @@ class SourceCountries2 extends Command
         $this->line('');
         $this->line('Cleaning previous data');
 
-        app('db')->table('sources')->where('sourcename', '=', $sourcename)->delete();
+        app('db')->table('source')->where('sourcename', '=', $sourcename)->delete();
 
         $this->line('Downloading source');
         $this->info($source);
@@ -38,7 +38,7 @@ class SourceCountries2 extends Command
         collect($data)->each(function($row) use ($sourcename) {
 
             app('db')
-                ->table('sources')
+                ->table('source')
                 ->insert([
                     'sourcename' => $sourcename,
                     'value' => json_encode($row)

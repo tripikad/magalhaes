@@ -41,6 +41,8 @@ There might be a need for dedicated tables for certain source data. The conventi
 
 #### Fetching
 
+![](screenshot1.png)
+
 Source datasets are fetched and stored in ```app/Console/Commands/Source*sourcename*``` commands, executed via ```php artisan source:*sourcename*```
 
 You can fetch and store all data sources using ```php artisan source:all```.
@@ -48,6 +50,8 @@ You can fetch and store all data sources using ```php artisan source:all```.
 Generally source data is not processed in any way, there is one exception: the data fetchers could add ```_lat```, ```_lng``` and ```_polygon``` keys to the JSON column for data preview.
 
 #### Preview
+
+![](screenshot2.png)
 
 Source data can be previewed in ```/sources/index.html``` page. 
 

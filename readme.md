@@ -43,9 +43,17 @@ There might be a need for dedicated tables for certain source data. The conventi
 
 ![](screenshot1.png)
 
-Source datasets are fetched and stored in ```app/Console/Commands/Source*sourcename*``` commands, executed via ```php artisan source:*sourcename*```
+Source datasets are fetched and stored in ```app/Console/Commands/Source*sourcename*``` commands and executed via:
 
-You can fetch and store all data sources using ```php artisan source:all```.
+```
+php artisan source:*sourcename*
+```
+
+You can fetch and store all data sources in one go using:
+
+```
+php artisan source:all
+```
 
 Generally source data is not processed in any way, there is one exception: the data fetchers could add ```_lat```, ```_lng``` and ```_polygon``` keys to the JSON column for data preview.
 

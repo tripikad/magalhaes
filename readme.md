@@ -65,4 +65,4 @@ Naming convention: ```processed_*processedname*```.
 
 Target data is meant for direct consumption via API. It has **schema** and most likely have Eloquent models attached to them.
 
-Naming convention: ```targets_*targetname*```.
+Naming convention: ```target_*targetname*```.

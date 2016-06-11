@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <script src="https://cdn.jsdelivr.net/vue/1.0.24/vue.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/vue.resource/0.7.2/vue-resource.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.6.1/lodash.min.js"></script>
+    <script src="https://cdn.rawgit.com/GuillaumeLeclerc/vue-google-maps/master/dist/vue-google-maps.js"></script>
+
+    <style type="text/css">
+        body {
+            font-family: monospace;
+            color: #777;
+            padding: 0 40px 40px 40px;
+            margin: 0;
+        }
+        h1 {
+            font-size: 13px;
+            font-weight: normal;
+            margin: 40px 0 20px 0;
+        }
+        .wrapper {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .code-wrapper {
+            border: 1px solid #f3f3f3;
+            background: #fafafa;
+            padding: 10px;
+            border-radius: 4px;
+            flex: 1;
+            padding: 20px;
+            height: 260px;
+            overflow: auto;
+            margin-right: 20px;
+        }
+        .map-wrapper {
+            margin-left: 20px;
+            flex: 1;
+            height: 300px;
+        }
+        .map {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Data sources</h1>
+
+    <div class="source" v-for="source in sources">
+
+        <h1>
+        {{ source.name }}<br>
+        {{ source.source_url }}<br>
+        Showing random {{ source.sample_count }} items, {{ source.count }} items total
+        </h1> 
+
+        <div class="wrapper">
+
+            <div class="code-wrapper">
+
+                <pre>{{ source.data | json }}</pre>
+
+            </div>
+
+            <div class="map-wrapper">
+
+                <google-map class="map"
+                    :center="{lat: 0, lng: 0}"
+                    :zoom="1"
+                    v-if="source.map"
+                >
+   
+                    <marker 
+                        v-for="row in source.data"
+                        :position="{lat: parseInt(row._lat), lng: parseInt(row._lng)}"
+                        :icon="{
+                            path: 'M-3,0a3,3 0 1,0 6,0a3,3 0 1,0 -6,0',
+                            fillColor: 'orange',
+                            fillOpacity: 0.8,
+                            scale: 1.5,
+                            strokeColor: 'black',
+                            strokeWeight: 1,
+                            strokeOpacity: 0.5
+                        }"
+                    >
+                    </marker>
+
+                </google-map>
+
+            </div>
+      
+        </div>
+    
+    </div>
+
+    <script>
+
+    VueGoogleMap.load({
+        'key': 'AIzaSyD6ncfFqvFFA4jZt7XolRIIS63yBvXjGUk',
+    })
+    Vue.component('google-map', VueGoogleMap.Map);
+    Vue.component('marker', VueGoogleMap.Marker);
+
+    new Vue({
+        el: 'body',
+        data: {
+            sources: []
+        },
+        methods: {},
+        ready: function() {
+
+            this.$http.get('./sources').then(function(res) {
+
+                this.sources = res.data
+
+                this.sources.forEach(function(source, index) {
+
+                    this.$http.get('./source/' + source.sourcename).then(function(res) {
+                        this.sources[index].data = res.data
+                        this.sources[index].sample_count
+                    })
+
+                }.bind(this))
+
+            })
+
+        }
+    })
+
+    </script>
+
+</body>
+</html>

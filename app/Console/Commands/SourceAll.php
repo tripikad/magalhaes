@@ -17,6 +17,8 @@ class SourceAll extends Command
         $this->call('source:airports3');
 
         $this->call('source:countries1');
+        $this->call('source:countries2');
+        $this->call('source:countrieseki');
 
     }
 

@@ -9,7 +9,7 @@ use Goutte\Client;
 class SourceCountriesEki extends Command
 {
 
-    protected $signature = 'source:countries:eki';
+    protected $signature = 'source:countrieseki';
 
     public function handle()
     {

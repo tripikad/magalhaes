@@ -7,9 +7,12 @@ Magalhaes in Trip.ee data processing and analysis framework.
 ```sh
 brew install php70
 brew install mysql
+mysqladmin -uroot create magalhaes
 git clone https://github.com/tripikad/magalhaes
 cd magalhaes
 composer install
+cp .env.example .env
+# edit database credentials in .env
 php artisan migrate
 php artisan source:all
 ```

@@ -38,7 +38,13 @@ $app->get('/sources', function () {
             'name' => 'Countries (by Geonames)',
             'sourcename' => 'countries2',
             'source_url' => 'http://api.geonames.org/countryInfo',
+        ],
+        [
+            'name' => 'Countries (by EKI)',
+            'sourcename' => 'countries_eki',
+            'source_url' => 'http://www.eki.ee/knab/mmaad.htm',
         ]
+
   
     ])->map(function($source) {
 

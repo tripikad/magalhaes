@@ -12,14 +12,14 @@ class SourceAll extends Command
     public function handle()
     {
 
-        $this->call('source:airports1');
-        $this->call('source:airports2');
-        $this->call('source:airports3');
+        $this->call('source:airports_1');
+        $this->call('source:airports_2');
+        $this->call('source:airports_3');
 
-        $this->call('source:countries1');
-        $this->call('source:countries2');
-        $this->call('source:countrieseki');
-        $this->call('source:countriesteleport');
+        $this->call('source:countries_1');
+        $this->call('source:countries_2');
+        $this->call('source:countries_eki');
+        $this->call('source:countries_teleport');
 
     }
 

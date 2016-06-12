@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 class SourceAirports extends Command
 {
 
-    protected $signature = 'source:airports1';
+    protected $signature = 'source:airports_1';
 
     public function handle()
     {

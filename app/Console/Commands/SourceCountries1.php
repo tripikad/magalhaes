@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 class SourceCountries1 extends Command
 {
 
-    protected $signature = 'source:countries1';
+    protected $signature = 'source:countries_1';
 
     public function handle()
     {

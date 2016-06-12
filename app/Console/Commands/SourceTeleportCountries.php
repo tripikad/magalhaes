@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 class SourceTeleportCountries extends Command
 {
 
-    protected $signature = 'source:countriesteleport';
+    protected $signature = 'source:countries_teleport';
 
     public function handle()
     {
@@ -41,19 +41,21 @@ class SourceTeleportCountries extends Command
 
         collect($data['_links']['country:items'])->map(function($country) {
      
-            $country['_country_id'] = collect(explode('/', $country["href"]))->take(-2)->first();
+            $country['_key'] = collect(explode('/', $country["href"]))->take(-2)->first();
 
             return $country;
      
         })->each(function($country) use ($sourcename) {
 
             $row = [
-                '_country_id' => $country['_country_id'],
+                '_key' => $country['_key'],
                 'name' => $country['name'],
             ];
 
             app('db')->table('source')->insert([
-                'sourcename' => $sourcename,'value' => json_encode($row)
+                'sourcename' => $sourcename,
+                'key' => $row['_key'],
+                'value' => json_encode($row)
             ]);
 
             $this->output->progressAdvance();

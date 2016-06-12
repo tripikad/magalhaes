@@ -43,6 +43,11 @@ $app->get('/sources', function () {
             'name' => 'Countries (by EKI)',
             'sourcename' => 'countries_eki',
             'source_url' => 'http://www.eki.ee/knab/mmaad.htm',
+        ],
+        [
+            'name' => 'Countries (by Teleport)',
+            'sourcename' => 'countries_teleport',
+            'source_url' => 'https://developers.teleport.org/api/reference/#!/countries/listCountries',
         ]
 
   

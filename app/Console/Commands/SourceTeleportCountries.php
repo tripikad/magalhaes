@@ -7,7 +7,7 @@ use Illuminate\Console\Command;
 class SourceTeleportCountries extends Command
 {
 
-    protected $signature = 'source:teleport:countries';
+    protected $signature = 'source:countriesteleport';
 
     public function handle()
     {

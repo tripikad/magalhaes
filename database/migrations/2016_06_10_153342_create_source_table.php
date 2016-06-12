@@ -15,6 +15,7 @@ class CreateSourceTable extends Migration
         Schema::create('source', function (Blueprint $table) {
             $table->increments('id');
             $table->string('sourcename');
+            $table->string('key');
             $table->json('value');
         });
     }

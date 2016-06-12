@@ -29,13 +29,13 @@ Source data is **schemaless**, unstructured, unprocessed data that is not meant 
 
 Source data is stored in SQL database in unstructured JSON format. By default the data stored in ```source``` table in following schema:
 
-||id|sourcename|value|
-|---|---|---|---|
-|Type|increments|string|json|
-|Comment||Matches ```*sourcename*``` above |Data dumpster|
-|Sample row|```234```|```world_airports```|```{"code": "TLL", "name": "Tallinn Airport"}```|
-|Sample row|```235```|```world_airports```|```{"code": "FRA", "name": "Frankfurt Airport"}```|
-|Sample row|```236```|```geonames_countries```|```{"name": "Estonia", "isocode": "EE"}```|
+||id|sourcename|key|value|
+|---|---|---|---|---
+|Type|increments|string|string|json|
+|*Comment*||*Matches sourcename above, works as namespace* |*Optional, for internal use*|*Data dumpster*|
+|Sample row|```234```|```world_airports```||```{"code": "TLL", "name": "Tallinn Airport"}```|
+|Sample row|```235```|```world_airports```||```{"code": "FRA", "name": "Frankfurt Airport"}```|
+|Sample row|```236```|```geonames_countries```|```EE```|```{"name": "Estonia", "isocode": "EE"}```|
 
 There might be a need for dedicated tables for certain source data. The convention is to use ```source_*sourcename*``` table with similar key-value JSON storage.
 

@@ -1,6 +1,6 @@
 ## About
 
-Magalhaes in Trip.ee data exloration and processing framework.
+Magalhaes in Trip.ee data exploration and processing framework.
 
 ## Architecture
 

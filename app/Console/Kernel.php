@@ -20,6 +20,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SourceCountries2::class,
         \App\Console\Commands\SourceCountriesEki::class,
         \App\Console\Commands\SourceTeleportCountries::class,
+        \App\Console\Commands\SourceTripDestinations::class,
 
         \App\Console\Commands\SourceAll::class,
     ];

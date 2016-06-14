@@ -1,21 +1,6 @@
 ## About
 
-Magalhaes in Trip.ee data processing and analysis framework.
-
-## Installation
-
-```sh
-brew install php70
-brew install mysql
-mysqladmin -uroot create magalhaes
-git clone https://github.com/tripikad/magalhaes
-cd magalhaes
-composer install
-cp .env.example .env
-# edit database credentials in .env
-php artisan migrate
-php artisan source:all
-```
+Magalhaes in Trip.ee data exloration and processing framework.
 
 ## Architecture
 
@@ -74,3 +59,19 @@ Naming convention: ```processed_*processedname*```.
 Target data is meant for direct consumption via API. It has **schema** and most likely have Eloquent models attached to them.
 
 Naming convention: ```target_*targetname*```.
+
+## Installation
+
+```sh
+brew install php70
+brew install mysql
+mysqladmin -uroot create magalhaes
+git clone https://github.com/tripikad/magalhaes
+cd magalhaes
+composer install
+cp .env.example .env
+# edit database credentials in .env
+php artisan migrate
+php artisan source:all
+```
+

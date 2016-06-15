@@ -24,6 +24,8 @@ Source data is stored in SQL database in unstructured JSON format. By default th
 
 There might be a need for dedicated tables for certain source data. The convention is to use ```source_*sourcename*``` table with similar key-value JSON storage.
 
+All sources and their metadata are listed in ```/storage/app/sources.yaml```.
+
 #### Fetching
 
 ![](screenshot1.png)

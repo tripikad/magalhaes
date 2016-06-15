@@ -41,7 +41,7 @@ $app->get('/sources', function () {
         ],
         [
             'name' => 'Countries (by EKI)',
-            'sourcename' => 'countries_eki',
+            'sourcename' => 'eki_countries',
             'source_url' => 'http://www.eki.ee/knab/mmaad.htm',
         ],
         [

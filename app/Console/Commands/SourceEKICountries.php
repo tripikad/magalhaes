@@ -3,30 +3,24 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
-use Goutte\Client;
 
-
-class SourceCountriesEki extends Command
+class SourceEkiCountries extends Source
 {
 
-    protected $signature = 'source:countries_eki';
+    protected $signature = 'source:eki_countries';
 
     public function handle()
     {
 
-        $sourcename = 'countries_eki';
-        $source = 'http://www.eki.ee/knab/mmaad.htm';
+        $sourcename = 'eki_countries';
+        $sourceurl = 'http://www.eki.ee/knab/mmaad.htm';
 
-        $this->line('');
-        $this->line('Cleaning previous data');
+        $this->cleanSource($sourcename);
 
-        app('db')->table('source')->where('sourcename', '=', $sourcename)->delete();
-   
         $this->line('Crawling source');
-        $this->info($source);
+        $this->info($sourceurl);
 
-        $client = new Client();
-        $crawler = $client->request('GET', $source);
+        $crawler = $this->goutte->request('GET', $sourceurl);
 
         $data = collect();
 

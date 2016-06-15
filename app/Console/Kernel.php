@@ -18,7 +18,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SourceAirports3::class,
         \App\Console\Commands\SourceCountries1::class,
         \App\Console\Commands\SourceCountries2::class,
-        \App\Console\Commands\SourceCountriesEki::class,
+        \App\Console\Commands\SourceEkiCountries::class,
         \App\Console\Commands\SourceTeleportCountries::class,
         \App\Console\Commands\SourceTripDestinations::class,
 

@@ -18,8 +18,8 @@ class SourceAll extends Command
         $this->call('source:countries_eki');
         $this->call('source:countries_geonames');
         $this->call('source:countries_mledoze');
-        $this->call('source:countries_trip');
         $this->call('source:countries_teleport');
+        $this->call('source:countries_trip');
 
     }
 

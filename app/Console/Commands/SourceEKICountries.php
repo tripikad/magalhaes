@@ -20,7 +20,7 @@ class SourceEkiCountries extends Source
         $this->line('Crawling source');
         $this->info($sourceurl);
 
-        $crawler = $this->goutte->request('GET', $sourceurl);
+        $crawler = $this->crawler($sourceurl);
 
         $data = collect();
 

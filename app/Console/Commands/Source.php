@@ -22,9 +22,15 @@ abstract class Source extends Command
         
         parent::__construct();
 
-        $this->goutte = new Goutte();
         $this->guzzle = new Guzzle();
         $this->ziparchive = new ZipArchive();
+
+    }
+
+    public function crawler($sourceurl)
+    {
+
+        return (new Goutte())->request('GET', $sourceurl);
 
     }
 

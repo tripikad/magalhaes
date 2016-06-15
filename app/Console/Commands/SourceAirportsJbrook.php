@@ -4,29 +4,19 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceAirports extends Command
+class SourceAirportsJbrook extends Source
 {
 
-    protected $signature = 'source:airports_1';
+    protected $signature = 'source:airports_jbrook';
 
     public function handle()
     {
-        $source = 'https://raw.githubusercontent.com/jbrooksuk/JSON-Airports/master/airports.json';
+        $sourcename = 'airports_jbrook';
+        $sourceurl = 'https://raw.githubusercontent.com/jbrooksuk/JSON-Airports/master/airports.json';
 
-        $this->line('');
-        $this->line('Cleaning previous data');
-
-        app('db')->table('source')->where('sourcename', '=', 'airports')->delete();
-
-        $this->line('Downloading source');
-        $this->info($source);
+        $this->cleanSource($sourcename);
+        $data = $this->fetchJson($sourceurl);
         
-        $data = json_decode(
-            file_get_contents($source)
-        );
-
-        $this->line('Inserting data');
-
         $this->output->progressStart(count($data));
 
         collect($data)->each(function($row) {

@@ -4,16 +4,16 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceTripDestinations extends Source
+class SourceCountriesTrip extends Source
 {
 
-    protected $signature = 'source:trip_destinations';
+    protected $signature = 'source:countries_trip';
 
     public function handle()
     {
 
         $sourcename = 'trip_destinations';
-        $sourceurl = 'http://localhost:8000/api/destinations';
+        $sourceurl = 'http://trip.ee/api/destinations';
 
         $this->cleanSource($sourcename);
         $data = $this->fetchJson($sourceurl);

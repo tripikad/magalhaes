@@ -4,15 +4,15 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceEkiCountries extends Source
+class SourceCountriesEki extends Source
 {
 
-    protected $signature = 'source:eki_countries';
+    protected $signature = 'source:countries_eki';
 
     public function handle()
     {
 
-        $sourcename = 'eki_countries';
+        $sourcename = 'countries_eki';
         $sourceurl = 'http://www.eki.ee/knab/mmaad.htm';
 
         $this->cleanSource($sourcename);

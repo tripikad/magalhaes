@@ -4,10 +4,10 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceTeleportCountries extends Source
+class SourceCountriesTeleport extends Source
 {
 
-    protected $signature = 'source:teleport_countries';
+    protected $signature = 'source:countries_teleport';
 
     public function handle()
     {
@@ -20,7 +20,7 @@ class SourceTeleportCountries extends Source
         // City         https://api.teleport.org/api/cities/geonameid:2735943/
         // City details http://api.geonames.org/get?geonameId=2735943&username=kristjanjansen
 
-        $sourcename = 'teleport_countries';
+        $sourcename = 'countries_teleport';
         $sourceurl = 'https://api.teleport.org/api/countries/';
 
         $this->cleanSource($sourcename);

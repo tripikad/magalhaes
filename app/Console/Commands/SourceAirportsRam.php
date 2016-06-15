@@ -4,24 +4,26 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceGeonamesCountries extends Source
+class SourceAirportsRam extends Source
 {
 
-    protected $signature = 'source:geonames_countries';
+    protected $signature = 'source:airports_ram';
 
     public function handle()
     {
+        $sourcename = 'airports_ram';
 
-        $sourcename = 'geonames_countries';
-        $sourceurl = 'http://api.geonames.org/countryInfo?lang=et&username=kristjanjansen';
+        $sourceurl = 'https://raw.githubusercontent.com/ram-nadella/airport-codes/master/airports.json';
 
         $this->cleanSource($sourcename);
+        $data = $this->fetchJson($sourceurl);
         
-        $data = $this->fetchXML($sourceurl, true)['country'];
-
         $this->output->progressStart(count((array)$data));
 
         collect($data)->each(function($row) use ($sourcename) {
+
+            $row->_lat = $row->latitude;
+            $row->_lng = $row->longitude;
 
             app('db')
                 ->table('source')

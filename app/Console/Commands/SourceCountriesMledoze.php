@@ -4,31 +4,20 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceCountries1 extends Command
+class SourceCountriesMledoze extends Source
 {
 
-    protected $signature = 'source:countries_1';
+    protected $signature = 'source:countries_mledoze';
 
     public function handle()
     {
-        $sourcename = 'countries1';
 
-        $source = 'https://raw.githubusercontent.com/mledoze/countries/master/dist/countries.json';
-
-        $this->line('');
-        $this->line('Cleaning previous data');
-
-        app('db')->table('source')->where('sourcename', '=', $sourcename)->delete();
-
-        $this->line('Downloading source');
-        $this->info($source);
+        $sourcename = 'countries_mledoze';
+        $sourceurl = 'https://raw.githubusercontent.com/mledoze/countries/master/dist/countries.json';
         
-        $data = json_decode(
-            file_get_contents($source)
-        );
-
-        $this->line('Inserting data');
-
+        $this->cleanSource($sourcename);
+        $data = $this->fetchJson($sourceurl);
+        
         $this->output->progressStart(count((array)$data));
 
         collect($data)->each(function($row) use ($sourcename) {

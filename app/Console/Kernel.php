@@ -13,16 +13,15 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        \App\Console\Commands\SourceAirports::class,
-        \App\Console\Commands\SourceAirports2::class,
-        \App\Console\Commands\SourceAirports3::class,
-        \App\Console\Commands\SourceCountries1::class,
-        \App\Console\Commands\SourceCountries2::class,
-        \App\Console\Commands\SourceCountriesEki::class,
-        \App\Console\Commands\SourceTeleportCountries::class,
-        \App\Console\Commands\SourceTripDestinations::class,
-
+        \App\Console\Commands\SourceAirportsJbrook::class,
+        \App\Console\Commands\SourceAirportsMwgg::class,
+        \App\Console\Commands\SourceAirportsRam::class,
         \App\Console\Commands\SourceAll::class,
+        \App\Console\Commands\SourceCountriesEki::class,
+        \App\Console\Commands\SourceCountriesGeonames::class,
+        \App\Console\Commands\SourceCountriesMledoze::class,
+        \App\Console\Commands\SourceCountriesTeleport::class,
+        \App\Console\Commands\SourceCountriesTrip::class,
     ];
 
     /**

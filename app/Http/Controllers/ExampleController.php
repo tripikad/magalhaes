@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
-class ExampleController extends Controller
+use Symfony\Component\Yaml\Yaml;
+
+class SourceController extends Controller
 {
     /**
      * Create a new controller instance.

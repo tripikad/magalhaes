@@ -36,17 +36,17 @@ $app->get('/sources', function () {
         ],
         [
             'name' => 'Countries (by Geonames)',
-            'sourcename' => 'countries2',
+            'sourcename' => 'geonames_countries',
             'source_url' => 'http://api.geonames.org/countryInfo',
         ],
         [
             'name' => 'Countries (by EKI)',
-            'sourcename' => 'countries_eki',
+            'sourcename' => 'eki_countries',
             'source_url' => 'http://www.eki.ee/knab/mmaad.htm',
         ],
         [
             'name' => 'Countries (by Teleport)',
-            'sourcename' => 'countries_teleport',
+            'sourcename' => 'teleport_countries',
             'source_url' => 'https://developers.teleport.org/api/reference/#!/countries/listCountries',
         ],
         [

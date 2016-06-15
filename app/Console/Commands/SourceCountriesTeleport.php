@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceTeleportCountries extends Command
+class SourceCountriesTeleport extends Source
 {
 
     protected $signature = 'source:countries_teleport';
@@ -20,23 +20,12 @@ class SourceTeleportCountries extends Command
         // City         https://api.teleport.org/api/cities/geonameid:2735943/
         // City details http://api.geonames.org/get?geonameId=2735943&username=kristjanjansen
 
-        $this->line('');
-        $this->line('Cleaning previous data');
-
-        app('db')->table('source')->where('sourcename', '=', 'countries_teleport')->delete();
-        
-        $this->line('Fetching data');
-
-        
-        $sourceurl = 'https://api.teleport.org/api/countries/';
         $sourcename = 'countries_teleport';
+        $sourceurl = 'https://api.teleport.org/api/countries/';
 
-        $this->line('Downloading source');
-        $this->info($sourceurl);
+        $this->cleanSource($sourcename);
+        $data = $this->fetchJson($sourceurl, true);
 
-        $data = json_decode(file_get_contents($sourceurl), true);
-
-        $this->line('Inserting data');
         $this->output->progressStart(count($data));
 
         collect($data['_links']['country:items'])->map(function($country) {

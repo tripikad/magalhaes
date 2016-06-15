@@ -4,30 +4,18 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class SourceAirports3 extends Command
+class SourceAirportsMwgg extends Source
 {
 
-    protected $signature = 'source:airports_3';
+    protected $signature = 'source:airports_mwgg';
 
     public function handle()
     {
-        $sourcename = 'airports3';
+        $sourcename = 'airports_mwgg';
+        $sourceurl = 'https://raw.githubusercontent.com/mwgg/Airports/master/airports.json';
 
-        $source = 'https://raw.githubusercontent.com/mwgg/Airports/master/airports.json';
-
-        $this->line('');
-        $this->line('Cleaning previous data');
-
-        app('db')->table('source')->where('sourcename', '=', $sourcename)->delete();
-
-        $this->line('Downloading source');
-        $this->info($source);
-        
-        $data = json_decode(
-            file_get_contents($source)
-        );
-
-        $this->line('Inserting data');
+        $this->cleanSource($sourcename);
+        $data = $this->fetchJson($sourceurl);        
 
         $this->output->progressStart(count((array)$data));
 

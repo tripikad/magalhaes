@@ -1,11 +1,14 @@
 <?php
 
+$app->get('sources', 'SourceController@sources');
+
 $app->get('/', function () {
 
     return file_get_contents(storage_path() . '/app/index.html');
 
 });
 
+/*
 $app->get('/sources', function () {
 
     $sources = collect([
@@ -73,7 +76,7 @@ $app->get('/sources', function () {
     return response()->json($sources);
 
 });
-
+*/
 $app->get('/source/{sourcename}', function ($sourcename) {
     
     $results = app('db')

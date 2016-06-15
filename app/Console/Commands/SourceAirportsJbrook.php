@@ -19,7 +19,7 @@ class SourceAirportsJbrook extends Source
         
         $this->output->progressStart(count($data));
 
-        collect($data)->each(function($row) {
+        collect($data)->each(function($row) use ($sourcename) {
 
             if (isset($row->lat)) { $row->_lat = $row->lat; }
             if (isset($row->lon)) { $row->_lng = $row->lon; }
@@ -27,7 +27,7 @@ class SourceAirportsJbrook extends Source
             app('db')
                 ->table('source')
                 ->insert([
-                    'sourcename' => 'airports',
+                    'sourcename' => $sourcename,
                     'value' => json_encode($row)
                 ]);
 

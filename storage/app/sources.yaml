@@ -1,0 +1,28 @@
+- name: World Airports
+  sourcename: airports_jbrook
+  source_url: https://github.com/jbrooksuk/JSON-Airports
+  map: true
+- name: World Airports
+  sourcename: airports_ram
+  source_url: https://github.com/ram-nadella/airport-codes
+  map: true
+- name: World Airports
+  sourcename: airports_mwgg
+  source_url: https://github.com/mwgg/Airports/airport-codes
+  map: true
+- name: Countries
+  sourcename: countries_mledoze
+  source_url: https://github.com/mledoze/countries
+  map: true
+- name: Countries
+  sourcename: countries_geonames
+  source_url: http://api.geonames.org/countryInfo
+- name: Countries
+  sourcename: countries_eki
+  source_url: http://www.eki.ee/knab/mmaad.htm
+- name: Countries
+  sourcename: countries_teleport
+  source_url: https://developers.teleport.org/api/reference/#!/countries/listCountries
+- name: Countries
+  sourcename: countries_trip
+  source_url: http://trip.ee

@@ -12,7 +12,7 @@ class SourceCountriesTrip extends Source
     public function handle()
     {
 
-        $sourcename = 'trip_destinations';
+        $sourcename = 'countries_trip';
         $sourceurl = 'http://trip.ee/api/destinations';
 
         $this->cleanSource($sourcename);

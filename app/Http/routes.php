@@ -46,7 +46,7 @@ $app->get('/sources', function () {
         ],
         [
             'name' => 'Countries (by Teleport)',
-            'sourcename' => 'countries_teleport',
+            'sourcename' => 'teleport_countries',
             'source_url' => 'https://developers.teleport.org/api/reference/#!/countries/listCountries',
         ],
         [

@@ -16,7 +16,6 @@ class SourceTripDestinations extends Source
         $sourceurl = 'http://localhost:8000/api/destinations';
 
         $this->cleanSource($sourcename);
-
         $data = $this->fetchJson($sourceurl);
 
         $this->output->progressStart(count((array)$data));

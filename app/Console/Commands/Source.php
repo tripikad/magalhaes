@@ -44,13 +44,13 @@ abstract class Source extends Command
 
     }
 
-    public function fetchJson($sourceurl) {
+    public function fetchJson($sourceurl, $associative = false) {
 
         $this->line('Downloading source');
 
         $this->info($sourceurl);
 
-        return json_decode(file_get_contents($sourceurl));
+        return json_decode(file_get_contents($sourceurl), $associative);
 
     }
 

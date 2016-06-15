@@ -54,4 +54,19 @@ abstract class Source extends Command
 
     }
 
+    public function fetchXML($sourceurl, $associative = false) {
+
+        $this->line('Downloading source');
+
+        $this->info($sourceurl);
+
+        return json_decode(
+            json_encode(
+                simplexml_load_string(
+                    file_get_contents($sourceurl)
+                )
+            ), $associative);
+    
+    }
+
 }

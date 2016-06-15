@@ -36,7 +36,7 @@ $app->get('/sources', function () {
         ],
         [
             'name' => 'Countries (by Geonames)',
-            'sourcename' => 'countries2',
+            'sourcename' => 'geonames_countries',
             'source_url' => 'http://api.geonames.org/countryInfo',
         ],
         [

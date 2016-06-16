@@ -76,6 +76,8 @@ class TargetCountries extends Target
             //'Somaalimaa' => '', // Not country
         ];
 
+        app('db')->table('target_countries')->truncate();
+        
         // First we get the continents, destinations without parent id
 
         $continentIds = $this->getSource('countries_trip')
@@ -89,8 +91,11 @@ class TargetCountries extends Target
         // either by English (mledoze) or Estonian name (geonames)
         // If no match is found, fall back to $countries_unknown map
 
-        $countries = $this->getSource('countries_trip')
-            ->filter(function($country) use ($continentIds) {
+        $countries = $this->getSource('countries_trip');
+
+        $this->output->progressStart($countries->count());
+
+        $countries->filter(function($country) use ($continentIds) {
       
                 return in_array($country->parent_id, $continentIds);
       
@@ -124,6 +129,8 @@ class TargetCountries extends Target
 
                 $country->iso2 = $iso2 ?? null;
                 
+                $this->output->progressAdvance();
+
                 return $country;
 
             })
@@ -137,9 +144,17 @@ class TargetCountries extends Target
             
             })->each(function($country) {
 
-                $this->line("$country->name $country->iso2");
+                app('db')
+                    ->table('target_countries')
+                    ->insert([
+                        'name_et' => $country->name,
+                        'iso2' => $country->iso2,
+                        'id_legacy' => $country->id
+                    ]);
 
             });
+
+            $this->output->progressFinish();
 
     }
     

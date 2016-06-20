@@ -12,6 +12,7 @@ class SourceAll extends Command
     public function handle()
     {
 
+        $this->call('source:airlines_openflights');
         $this->call('source:airports_jbrook');
         $this->call('source:airports_mwgg');
         $this->call('source:airports_ram');

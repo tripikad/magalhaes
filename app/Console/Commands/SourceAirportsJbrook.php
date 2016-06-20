@@ -12,7 +12,7 @@ class SourceAirportsJbrook extends Source
     public function handle()
     {
         $sourcename = 'airports_jbrook';
-        $sourceurl = 'https://raw.githubusercontent.com/jbrooksuk/JSON-Airports/master/airports.json';
+        $sourceurl = 'https://raw.githubusercontent.com/jpatokal/openflights/master/data/airlines.dat';
 
         $this->cleanSource($sourcename);
         $data = $this->fetchJson($sourceurl);

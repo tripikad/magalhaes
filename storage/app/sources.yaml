@@ -29,4 +29,9 @@
 - name: Airlines
   sourcename: airlines_openflights
   source_url: http://openflights.org/data.html
+- name: Airports
+  sourcename: airports_openflights
+  source_url: http://openflights.org/data.html
+  map: true
+
 

@@ -15,6 +15,7 @@ class SourceAll extends Command
         $this->call('source:airlines_openflights');
         $this->call('source:airports_jbrook');
         $this->call('source:airports_mwgg');
+        $this->call('source:airports_openflights');
         $this->call('source:airports_ram');
         $this->call('source:countries_eki');
         $this->call('source:countries_geonames');

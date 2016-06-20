@@ -26,3 +26,7 @@
 - name: Countries
   sourcename: countries_trip
   source_url: http://trip.ee
+- name: Airlines
+  sourcename: airlines_openflights
+  source_url: http://openflights.org/data.html
+

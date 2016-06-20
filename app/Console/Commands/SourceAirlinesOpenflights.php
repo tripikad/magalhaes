@@ -35,7 +35,7 @@ class SourceAirlinesOpenflights extends Source
                 ->table('source')
                 ->insert([
                     'sourcename' => $sourcename,
-                    'value' => json_encode((object) $row)
+                    'value' => json_encode($row)
                 ]);
 
         }

@@ -25,6 +25,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SourceCountriesMledoze::class,
         \App\Console\Commands\SourceCountriesTeleport::class,
         \App\Console\Commands\SourceCountriesTrip::class,
+        \App\Console\Commands\SourceRoutesOpenflights::class,
         \App\Console\Commands\TargetCountries::class,
         
     ];

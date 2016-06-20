@@ -33,5 +33,7 @@
   sourcename: airports_openflights
   source_url: http://openflights.org/data.html
   map: true
-
+- name: Airline routes
+  sourcename: routes_openflights
+  source_url: http://openflights.org/data.html
 

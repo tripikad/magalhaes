@@ -64,6 +64,13 @@ class SourceCitiesGeonames extends Source
 
         foreach ($data as $row) {
 
+            $row = (object) $row;
+            
+            if ($row->latitude && $row->longitude) { 
+                $row->_lat = $row->latitude;
+                $row->_lng = $row->longitude;
+            }
+            
             app('db')
                 ->table('source')
                 ->insert([

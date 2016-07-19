@@ -16,21 +16,21 @@ class SourceCitiesGeonames extends Source
 
         $this->cleanSource($sourcename);
 
-        // $sourceurl = 'http://download.geonames.org/export/dump/cities15000.zip';
+        $sourceurl = 'http://download.geonames.org/export/dump/cities15000.zip';
   
-        $sourceurl = 'https://github.com/v5analytics/vertexium/blob/master/examples/geonames-cities15000.txt.gz?raw=true';
+        //$sourceurl = 'https://github.com/v5analytics/vertexium/blob/master/examples/geonames-cities15000.txt.gz?raw=true';
 
-        //$this->line('Downloading file');
+        $this->line('Downloading file');
 
-        //$this->guzzle->get($sourceurl, [
-        //    'save_to' => storage_path('app/source/cities15000.zip')
-        //]);
+        $this->guzzle->get($sourceurl, [
+            'save_to' => storage_path('app/source/cities15000.zip')
+        ]);
 
-       // $this->line('Unzipping');
+        $this->line('Unzipping');
 
-        //$this->ziparchive->open(storage_path('app/source/cities15000.zip'));
-        //$this->ziparchive->extractTo(storage_path('/app/source/'));
-        //$this->ziparchive->close();
+        $this->ziparchive->open(storage_path('app/source/cities15000.zip'));
+        $this->ziparchive->extractTo(storage_path('/app/source/'));
+        $this->ziparchive->close();
 
         $keys = [
             'geonameid', // integer id of record in geonames database
@@ -55,6 +55,8 @@ class SourceCitiesGeonames extends Source
         ];
 
 
+        $this->line('Adding to database');
+
         $csv = $this->csv(
             file_get_contents(storage_path('app/source/cities15000.txt'))
         );
@@ -65,7 +67,7 @@ class SourceCitiesGeonames extends Source
         foreach ($data as $row) {
 
             $row = (object) $row;
-            
+
             if ($row->latitude && $row->longitude) { 
                 $row->_lat = $row->latitude;
                 $row->_lng = $row->longitude;

@@ -1,3 +1,7 @@
+- name: Geonames Cities
+  sourcename: cities_geonames
+  source_url: http://download.geonames.org/export/dump/
+  map: true
 - name: World Airports
   sourcename: airports_jbrook
   source_url: https://github.com/jbrooksuk/JSON-Airports

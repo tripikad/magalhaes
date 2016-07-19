@@ -64,9 +64,14 @@ Naming convention: ```target_*targetname*```.
 
 ## Installation
 
+If on Mac:
+
 ```sh
 brew install php70
 brew install mysql
+```
+
+```sh
 mysqladmin -uroot create magalhaes
 git clone https://github.com/tripikad/magalhaes
 cd magalhaes

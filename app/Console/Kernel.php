@@ -27,6 +27,7 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SourceCountriesTrip::class,
         \App\Console\Commands\SourceRoutesOpenflights::class,
         \App\Console\Commands\TargetCountries::class,
+        \App\Console\Commands\SourceCitiesGeonames::class,
         
     ];
 

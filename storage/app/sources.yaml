@@ -40,4 +40,10 @@
 - name: Airline routes
   sourcename: routes_openflights
   source_url: http://openflights.org/data.html
+- name: Wikivoyage hotels
+  sourcename: hotels_wikivoyage
+  source_url: https://datahub.io/dataset/wikivoyage-listings-as-csv
+  map: true
+
+
 

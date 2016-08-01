@@ -22,6 +22,7 @@ class SourceAll extends Command
         $this->call('source:countries_mledoze');
         $this->call('source:countries_teleport');
         $this->call('source:countries_trip');
+        $this->call('source:hotels_wikivoyage');
         $this->call('source:routes_openflights');
 
     }

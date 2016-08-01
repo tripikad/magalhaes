@@ -5,9 +5,8 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 use SplFileObject;
-use GuzzleHttp;
 
-class SourceHotelWikivoyage extends Source
+class SourceHotelsWikivoyage extends Source
 {
 
     protected $signature = 'source:hotels_wikivoyage';
@@ -21,17 +20,18 @@ class SourceHotelWikivoyage extends Source
 
         $sourceurl = 'https://ckannet-storage.commondatastorage.googleapis.com/2015-09-14T06:28:11.645Z/enwikivoyage-20150901-listings.csv';
   
-
         $this->line('Downloading file');
 
+        $filepath = storage_path('app/source/enwikivoyage-20150901-listings.csv');
+        
         $this->guzzle->get($sourceurl, [
             'verify' => false,
-            'save_to' => storage_path('app/source/enwikivoyage-20150901-listings.csv')
+            'save_to' => $filepath
         ]);
 
         $this->line('Adding to database');
 
-        $csv = Reader::createFromPath(new SplFileObject('storage/app/source/enwikivoyage-20150901-listings.csv'));
+        $csv = Reader::createFromPath(new SplFileObject($filepath));
 
         $csv->setDelimiter(";");
 
@@ -41,6 +41,11 @@ class SourceHotelWikivoyage extends Source
 
             $row = (object) $row;
             
+            if (isset($row->LAT) && isset($row->LON)) {
+                $row->_lat = $row->LAT;
+                $row->_lng = $row->LON;
+            }
+
             app('db')
                 ->table('source')
                 ->insert([

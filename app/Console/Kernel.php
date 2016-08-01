@@ -20,15 +20,15 @@ class Kernel extends ConsoleKernel
         \App\Console\Commands\SourceAirportsOpenflights::class,
         \App\Console\Commands\SourceAirportsRam::class,
         \App\Console\Commands\SourceAll::class,
+        \App\Console\Commands\SourceCitiesGeonames::class,
         \App\Console\Commands\SourceCountriesEki::class,
         \App\Console\Commands\SourceCountriesGeonames::class,
         \App\Console\Commands\SourceCountriesMledoze::class,
         \App\Console\Commands\SourceCountriesTeleport::class,
         \App\Console\Commands\SourceCountriesTrip::class,
+        \App\Console\Commands\SourceHotelsWikivoyage::class,
         \App\Console\Commands\SourceRoutesOpenflights::class,
         \App\Console\Commands\TargetCountries::class,
-        \App\Console\Commands\SourceCitiesGeonames::class,
-        \App\Console\Commands\SourceHotelWikivoyage::class,
         
     ];
 

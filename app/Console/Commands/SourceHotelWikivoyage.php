@@ -33,31 +33,9 @@ class SourceHotelWikivoyage extends Source
 
         $csv = Reader::createFromPath(new SplFileObject('storage/app/source/enwikivoyage-20150901-listings.csv'));
 
-           $keys = [
-           'TITLE',
-           'TYPE',
-           'NAME',
-           'ALT',
-           'ADDRESS',
-           'DIRECTIONS',
-           'PHONE',
-           'TOLLFREE',
-           'EMAIL',
-           'FAX',
-           'URL',
-           'HOURS',
-           'CHECKIN',
-           'CHECKOUT',
-           'IMAGE',
-           'PRICE',
-           'LAT',
-           'LON',
-           'CONTENT'
-        ];
-
         $csv->setDelimiter(";");
 
-        $data = $csv->fetchAssoc($keys);
+        $data = $csv->fetchAssoc(0);
 
         foreach ($data as $row) {
 

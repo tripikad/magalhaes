@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use Illuminate\Console\Command;
 use League\Csv\Reader;
 use SplFileObject;
+use GuzzleHttp;
 
 class SourceHotelWikivoyage extends Source
 {
@@ -24,12 +25,13 @@ class SourceHotelWikivoyage extends Source
         $this->line('Downloading file');
 
         $this->guzzle->get($sourceurl, [
+            'verify' => false,
             'save_to' => storage_path('app/source/enwikivoyage-20150901-listings.csv')
         ]);
 
         $this->line('Adding to database');
 
-        $csv = Reader::createFromPath(new SplFileObject('app/source/enwikivoyage-20150901-listings.csv'));
+        $csv = Reader::createFromPath(new SplFileObject('storage/app/source/enwikivoyage-20150901-listings.csv'));
 
            $keys = [
            'TITLE',
@@ -53,7 +55,7 @@ class SourceHotelWikivoyage extends Source
            'CONTENT'
         ];
 
-        $csv->setDelimiter("\t");
+        $csv->setDelimiter(";");
 
         $data = $csv->fetchAssoc($keys);
 
